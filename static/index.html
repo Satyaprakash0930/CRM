@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Dashboard - Update Company</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="update-logo.png" alt="upDate Logo" >
+                </div>
+                <div class="modules-section">
+                    <div class="modules-header">
+                        <span>Modules</span>
+                        <button class="add-module-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-section">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+            </div>
+
+            <div class="nav-menu">
+                <div class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-header" data-section="sales">
+                        <i class="fas fa-chevron-down section-arrow"></i>
+                        <span>More Info</span>
+                    </div>
+                    <div class="nav-section-content" id="sales-section">
+                        <div class="nav-item active">
+                            <i class="fas fa-user-plus"></i>
+                            <span>All Info</span>
+                            <button class="nav-options">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                        <div class="nav-item">
+                            <i class="fas fa-users"></i>
+                            <span>Contacted</span>
+                        </div>
+                        <div class="nav-item">
+                            <i class="fas fa-building"></i>
+                            <span>Accounts</span>
+                        </div>
+
+                        <div class="nav-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Documents</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-icons">
+                    <i class="fas fa-plus-square"></i>
+                    <i class="fas fa-calendar-alt"></i>
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-cog"></i>
+                    <i class="fas fa-th"></i>
+                </div>
+                <div class="teamspace">
+                    <div class="teamspace-info">
+                        <div class="teamspace-avatar">CT</div>
+                        <span>CRM Teamspace</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Applicants Dashboard</h1>
+                <div class="header-actions">
+
+                    <input type="file" id="csvFileInput" accept=".csv,.xlsx,.xls" style="display: none;">
+                    <button class="btn btn-secondary" id="importBtn">
+                        <i class="fas fa-upload"></i>
+                        Import CSV/Excel
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Total Applicants</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Placed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Contacted</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Source</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Not Contacted Yet</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0%</h3>
+                            <p>Conversion Rate</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>₹0</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>0</h3>
+                            <p>Top Source</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ✅ Charts should only show in Home tab -->
+                <div id="homeCharts" class="charts-row" style="display:none;">
+                    <div class="chart-card">
+                        <h2>Applicants by Location</h2>
+                        <canvas id="locationChart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <h2>Preferred Shifts</h2>
+                        <canvas id="shiftChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- ACCOUNTS TAB -->
+                <div id="accountsTab" class="tab-content">
+                    <!-- accounts page content -->
+                </div>
+
+                <!-- CONTACTED TAB -->
+                <div id="contactedTab" class="tab-content">
+                    <!-- contacted page content -->
+                </div>
+            </div>
+
+            <div class="leads-table-container">
+                <div class="table-header">
+                    <h2>Recent Data</h2>
+                    <div class="table-filters">
+                        <select class="filter-select" id="domainFilter">
+                            <option value="all">All Domains</option>
+                        </select>
+
+                        <select class="sort-select" id="sortSelect" style="display: none;">
+                            <option value="">Sort by...</option>
+                        </select>
+                        <input type="text" placeholder="Search leads..." class="table-search">
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table class="leads-table">
+                        <thead>
+                            <tr>
+                                <th>Sr_no.</th>
+                                <th>Name</th>
+                                <th>Company</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Source</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
